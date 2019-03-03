@@ -1,8 +1,8 @@
 {
-  "name": "CanNotChoose",
+  "name": "Expenser",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/dantegr/cannotchoose.git",
+  "repository": "https://github.com/dantegr/Expenser.git",
   "author": "Pantelis <tampantelis@gmail.com>",
   "license": "MIT",
   "scripts": {
