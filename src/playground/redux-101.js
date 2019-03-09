@@ -29,31 +29,36 @@ const setCount =({ setBy = 1}= {}) => {
   };
 };
 
+// Reducers
 
-const store = createStore((state = { count: 0 }, action) => {
-switch (action.type) {
-  case 'INCREMENT':
-    return {
-      count: state.count + action.incrementBy
-    };
-  case 'DECREMENT':
-    return {
-      count: state.count - action.decrementBy
-    }
-    case 'RESET':
-    return {
-      count: 0
-    }
-    case 'SET':
-    return {
-      count: action.setBy
-    }
-  default:
-  return state;
+const countReducer = (state = { count: 0 }, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return {
+        count: state.count + action.incrementBy
+      };
+    case 'DECREMENT':
+      return {
+        count: state.count - action.decrementBy
+      }
+      case 'RESET':
+      return {
+        count: 0
+      }
+      case 'SET':
+      return {
+        count: action.setBy
+      }
+    default:
+    return state;
+  
+  }
+  
+  };
 
-}
 
-});
+const store = createStore(countReducer);
+
 
 const unsubscribe = store.subscribe(() => {
   console.log(store.getState());
