@@ -67,12 +67,50 @@ const setTextFilter = (text = '') => ({
   text
 });
 
+const sortByAmount = () => ({
+  type: 'SORT_BY_AMOUNT'
+});
+
+const sortByDate = () => ({
+  type: 'SORT_BY_DATE'
+});
+
+const setStartDate = (startDate = undefined) => ({
+  type: 'SET_START_DATE',
+  startDate
+});
+
+const setEndDate = (endDate = undefined) => ({
+  type: 'SET_END_DATE',
+  endDate
+});
+
 const filterReducer = (state = filterReducerDefaultState, action) => {
   switch (action.type) {
     case 'SET_TEXT_FILTER':
       return {
         ...state,
         text: action.text
+      };
+    case 'SORT_BY_AMOUNT':
+      return {
+        ...state,
+        sortBy: 'amount'
+      };
+    case 'SORT_BY_DATE':
+      return {
+        ...state,
+        sortBy: 'date'
+      };
+    case 'SET_START_DATE':
+      return {
+        ...state,
+        startDate: action.startDate
+      };
+    case 'SET_END_DATE':
+      return {
+        ...state,
+        endDate: action.endDate
       };
     default:
       return state;
@@ -90,18 +128,23 @@ store.subscribe (() => {
   console.log(store.getState());
 });
 
-const expenseOne = store.dispatch (addExpense({ description: 'Rent', amount: 100}));
-const expenseTwo = store.dispatch (addExpense({ description: 'Coffee', amount: 300}));
+// const expenseOne = store.dispatch (addExpense({ description: 'Rent', amount: 100}));
+// const expenseTwo = store.dispatch (addExpense({ description: 'Coffee', amount: 300}));
 
-store.dispatch(removeExpense({ id: expenseOne.expense.id }));
+// store.dispatch(removeExpense({ id: expenseOne.expense.id }));
 
-store.dispatch(editExpense(expenseTwo.expense.id,{ amount: 500}));
+// store.dispatch(editExpense(expenseTwo.expense.id,{ amount: 500}));
 
-store.dispatch(setTextFilter('Rent'));
+// store.dispatch(setTextFilter('Rent'));
 
-store.dispatch(setTextFilter());
+// store.dispatch(setTextFilter());
 
+// store.dispatch(sortByAmount());
+// store.dispatch(sortByDate());
 
+store.dispatch(setStartDate(125));
+store.dispatch(setStartDate());
+store.dispatch(setEndDate(1250));
 
 const demoState = {
   expenses: [{
