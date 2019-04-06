@@ -11,6 +11,22 @@ const config = {
 
 firebase.initializeApp(config);
 
-firebase.database().ref().set({
-  name: 'Pantelis Tamtakos'
+const database =  firebase.database();
+
+database.ref().set({
+  name: 'Pantelis Tamtakos',
+  age: 26,
+  isSingle: false,
+  location: {
+    city: 'Thessaloniki',
+    country: 'Greece'
+  },
+  atributes: {
+    height: 175,
+    weight: 110
+  }
 });
+
+database.ref('age').set(32);
+
+database.ref('location/city').set('Pylaia');
