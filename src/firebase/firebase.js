@@ -25,8 +25,16 @@ database.ref().set({
     height: 175,
     weight: 110
   }
+}).then(() => {
+  console.log('data is saved');
+}).catch((e) => {
+  console.log('This faile',e);
 });
 
-database.ref('age').set(32);
 
-database.ref('location/city').set('Pylaia');
+database.ref('isSingle').remove()
+.then(()=> {
+  console.log('data was removed');
+}).catch((e) => {
+  console.log('data was not removed');
+});
