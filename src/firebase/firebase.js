@@ -16,7 +16,11 @@ const database =  firebase.database();
 database.ref().set({
   name: 'Pantelis Tamtakos',
   age: 26,
-  isSingle: false,
+  stressLevel: 6,
+  job: {
+    title: 'Web Developer',
+    company: 'Topfrost'
+  },
   location: {
     city: 'Thessaloniki',
     country: 'Greece'
@@ -31,10 +35,15 @@ database.ref().set({
   console.log('This faile',e);
 });
 
-
-database.ref('isSingle').remove()
-.then(()=> {
-  console.log('data was removed');
-}).catch((e) => {
-  console.log('data was not removed');
+database.ref().update({
+  stressLevel: 9,
+  'job/company':  'Amazon',
+  'location/city': 'Seattle'
 });
+
+// database.ref('isSingle').remove()
+// .then(()=> {
+//   console.log('data was removed');
+// }).catch((e) => {
+//   console.log('data was not removed');
+// });
