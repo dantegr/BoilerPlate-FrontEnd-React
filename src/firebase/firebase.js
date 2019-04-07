@@ -13,12 +13,52 @@ firebase.initializeApp(config);
 
 const database =  firebase.database();
 
-database.ref('expenses').push({
-  description: 'video game',
-  note: 'col',
-  amount: 120,
-  createdAt: 40000
+database.ref('expenses').on('child_removed', (snapshot) => {
+  console.log(snapshot.key, snapshot.val());
+
 });
+
+database.ref('expenses').on('child_changed', (snapshot) => {
+  console.log(snapshot.key, snapshot.val());
+
+});
+
+database.ref('expenses').on('child_added', (snapshot) => {
+  console.log(snapshot.key, snapshot.val());
+
+});
+
+// database.ref('expenses').once('value').then((snapshot) => {
+//   const expenses =[];
+
+//   snapshot.forEach((childSnapsnot) => {
+//     expenses.push({
+//       id: childSnapsnot.key,
+//       ...childSnapsnot.val()
+//     });
+//   });
+
+//   console.log(expenses);
+// });
+
+// database.ref('expenses').on('value', (snapshot) => {
+//   const expenses =[];
+
+//   snapshot.forEach((childSnapsnot) => {
+//     expenses.push({
+//       id: childSnapsnot.key,
+//       ...childSnapsnot.val()
+//     });
+//   });
+
+//   console.log(expenses);} );
+
+// database.ref('expenses').push({
+//   description: 'video game',
+//   note: 'col',
+//   amount: 120,
+//   createdAt: 40000
+// });
 
 database.ref('expenses').push({
   description: 'video game',
@@ -28,12 +68,12 @@ database.ref('expenses').push({
 });
 
 
-database.ref('expenses').push({
-  description: 'video game',
-  note: 'col',
-  amount: 200,
-  createdAt: 70000
-});
+// database.ref('expenses').push({
+//   description: 'video game',
+//   note: 'col',
+//   amount: 200,
+//   createdAt: 70000
+// });
 
 
 // database.ref('notes').push({
