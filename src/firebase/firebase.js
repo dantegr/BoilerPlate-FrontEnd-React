@@ -13,70 +13,32 @@ firebase.initializeApp(config);
 
 const database =  firebase.database();
 
-const onValueChange = database.ref().on('value', (snapshot) => {
-    const val = snapshot.val();
-    console.log(val.name + ' is a ' + val.job.title + ' at ' + val.job.company);
-  }, (e) => {
-      console.log('This failed',e);
-    });
+database.ref('expenses').push({
+  description: 'video game',
+  note: 'col',
+  amount: 120,
+  createdAt: 40000
+});
 
-// const onValueChange = database.ref().on('value', (snapshot) => {
-//     const val = snapshot.val();
-//     console.log(val);
-//   }, (e) => {
-//       console.log('This faile',e);
-//     });
-  
-// setTimeout(() => {
-//   database.ref('age').set(29);
-// }, 3500);
+database.ref('expenses').push({
+  description: 'video game',
+  note: 'col',
+  amount: 100,
+  createdAt: 50000
+});
 
-// setTimeout(() => {
-//   database.ref().off(onValueChange);
-// }, 7000);
 
-// setTimeout(() => {
-//   database.ref('age').set(30);
-// }, 10500);
+database.ref('expenses').push({
+  description: 'video game',
+  note: 'col',
+  amount: 200,
+  createdAt: 70000
+});
 
-// database.ref('location/city').once('value').then((snapshot) => {
-//   const val = snapshot.val();
-//   console.log(val);
-// }).catch((e) => {
-//   console.log('Error Fetching Data',e);
-// });
 
-// database.ref().set({
-//   name: 'Pantelis Tamtakos',
-//   age: 26,
-//   stressLevel: 6,
-//   job: {
-//     title: 'Web Developer',
-//     company: 'Topfrost'
-//   },
-//   location: {
-//     city: 'Thessaloniki',
-//     country: 'Greece'
-//   },
-//   atributes: {
-//     height: 175,
-//     weight: 110
-//   }
-// }).then(() => {
-//   console.log('data is saved');
-// }).catch((e) => {
-//   console.log('This faile',e);
-// });
+// database.ref('notes').push({
+//   title: 'course topics',
+//   body: 'node python angular'
+// })
 
-// database.ref().update({
-//   stressLevel: 9,
-//   'job/company':  'Amazon',
-//   'location/city': 'Seattle'
-// });
-
-// database.ref('isSingle').remove()
-// .then(()=> {
-//   console.log('data was removed');
-// }).catch((e) => {
-//   console.log('data was not removed');
-// });
+// database.ref('notes/-Lbrv8Tm7qxXYrXTrQXs').remove();
