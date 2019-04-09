@@ -13,72 +13,29 @@ firebase.initializeApp(config);
 
 const database =  firebase.database();
 
-database.ref('expenses').on('child_removed', (snapshot) => {
-  console.log(snapshot.key, snapshot.val());
+export { firebase, database as default};
 
-});
 
-database.ref('expenses').on('child_changed', (snapshot) => {
-  console.log(snapshot.key, snapshot.val());
+// database.ref('expenses').on('child_removed', (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
 
-});
-
-database.ref('expenses').on('child_added', (snapshot) => {
-  console.log(snapshot.key, snapshot.val());
-
-});
-
-// database.ref('expenses').once('value').then((snapshot) => {
-//   const expenses =[];
-
-//   snapshot.forEach((childSnapsnot) => {
-//     expenses.push({
-//       id: childSnapsnot.key,
-//       ...childSnapsnot.val()
-//     });
-//   });
-
-//   console.log(expenses);
 // });
 
-// database.ref('expenses').on('value', (snapshot) => {
-//   const expenses =[];
+// database.ref('expenses').on('child_changed', (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
 
-//   snapshot.forEach((childSnapsnot) => {
-//     expenses.push({
-//       id: childSnapsnot.key,
-//       ...childSnapsnot.val()
-//     });
-//   });
-
-//   console.log(expenses);} );
-
-// database.ref('expenses').push({
-//   description: 'video game',
-//   note: 'col',
-//   amount: 120,
-//   createdAt: 40000
 // });
 
-database.ref('expenses').push({
-  description: 'video game',
-  note: 'col',
-  amount: 100,
-  createdAt: 50000
-});
+// database.ref('expenses').on('child_added', (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
+
+// });
+
 
 
 // database.ref('expenses').push({
 //   description: 'video game',
 //   note: 'col',
-//   amount: 200,
-//   createdAt: 70000
+//   amount: 100,
+//   createdAt: 50000
 // });
-
-
-// database.ref('notes').push({
-//   title: 'course topics',
-//   body: 'node python angular'
-// })
-
-// database.ref('notes/-Lbrv8Tm7qxXYrXTrQXs').remove();
