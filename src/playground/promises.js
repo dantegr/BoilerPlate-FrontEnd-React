@@ -1,9 +1,9 @@
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
-    // resolve({
-    //   name: 'Pantelis',
-    //   age: 32
-    // });
+    resolve({
+      name: 'Pantelis',
+      age: 32
+    });
     reject('something went worng');
   }, 1500);
   
@@ -12,7 +12,8 @@ const promise = new Promise((resolve, reject) => {
 console.log('before');
 
 promise.then((data)=> {
-  console.log('1',data);
+  console.log('1',data)}).then(() => {
+    console.log('does this run?');  
 }).catch((error)=> {
   console.log('error',error);
 });
