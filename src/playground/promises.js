@@ -12,6 +12,12 @@ const promise = new Promise((resolve, reject) => {
 console.log('before');
 
 promise.then((data)=> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('this is my other promise');
+    }, 1500);
+    
+  });
   console.log('1',data)}).then(() => {
     console.log('does this run?');  
 }).catch((error)=> {
