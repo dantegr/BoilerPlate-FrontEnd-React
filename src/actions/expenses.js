@@ -47,4 +47,18 @@ export const setExpenses = (expenses) => ({
   expenses
 });
 
-// export const startSetExpenses;
+export const startSetExpenses = () => {
+  return (dispatch) => {
+    return database.ref('expenses').once('value').then((snapsnot) => {
+      const expenses =[];
+
+      snapsnot.forEach((childSnapshot) => {
+        expenses.push({
+          id: childSnapshot.key,
+          ...childSnapshot.val()
+        });
+      });
+      dispatch(setExpenses(expenses));
+    });
+  };
+};
