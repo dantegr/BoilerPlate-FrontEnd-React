@@ -6,3 +6,11 @@ test('should correctly render LoginPage component', () => {
   const wrapper = shallow(<LoginPage/>);
   expect(wrapper).toMatchSnapshot();
 });
+
+test('should call startLoginon button click', () => {
+  const startLogin = jest.fn();
+  const wrapper = shallow(<LoginPage startLogin={startLogin} />);
+  wrapper.find('button').simulate('click');
+  expect(startLogin).toHaveBeenCalled();
+
+});
