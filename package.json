@@ -1,8 +1,8 @@
 {
-  "name": "Expenser",
+  "name": "boilerplate-react-app",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/dantegr/Expenser.git",
+  "repository": "https://github.com/dantegr/BoilerPlate-FrontEnd-React.git",
   "author": "Pantelis <tampantelis@gmail.com>",
   "license": "MIT",
   "scripts": {

@@ -16,28 +16,3 @@ const database = firebase.database();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
 export { firebase, googleAuthProvider, database as default};
-
-
-// database.ref('expenses').on('child_removed', (snapshot) => {
-//   console.log(snapshot.key, snapshot.val());
-
-// });
-
-// database.ref('expenses').on('child_changed', (snapshot) => {
-//   console.log(snapshot.key, snapshot.val());
-
-// });
-
-// database.ref('expenses').on('child_added', (snapshot) => {
-//   console.log(snapshot.key, snapshot.val());
-
-// });
-
-
-
-// database.ref('expenses').push({
-//   description: 'video game',
-//   note: 'col',
-//   amount: 100,
-//   createdAt: 50000
-// });
